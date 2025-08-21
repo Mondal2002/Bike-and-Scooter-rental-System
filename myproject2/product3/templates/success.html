@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Success | RideEase</title>
+  <style>
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #4f46e5;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .btn-pay {
+      background-color: #4f46e5;
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-pay:hover {
+      background-color: #4338ca;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Booking Confirmed!</h2>
+    <p>Your booking for <strong>{{ vehicle_name }}</strong> is successful.</p>
+
+    <input type="hidden" id="vehicle-name" value="{{ vehicle_name }}">
+    <button onclick="redirectToPayment()" class="btn-pay">Proceed to Payment</button>
+  </div>
+
+  <script>
+  function redirectToPayment() {
+    const name = document.getElementById("vehicle-name").value.trim().toLowerCase();
+
+    if (name.includes("city scooter")) {
+      window.location.href = "/payments/city-scooter/";
+    } else if (name.includes("sport bike")) {
+      window.location.href = "/payments/sport-bike/";
+    } else if (name.includes("premium scooter")) {
+      window.location.href = "/payments/Premium-scooter/";
+    } else if (name.includes("adventure")) {
+      window.location.href = "/payments/Adventure-bike/";
+    } else if (name.includes("electric")) {
+      window.location.href = "/payments/Electric-scooter/";
+    } else if (name.includes("cruiser")) {
+      window.location.href = "/payments/Cruiser-bike/";
+    } else if (name.includes("cycle")) {
+      window.location.href = "/payments/Cycle/";
+    } else {
+      alert("No payment page found for the selected vehicle.");
+    }
+  }
+</script>
+
+
+</body>
+</html>

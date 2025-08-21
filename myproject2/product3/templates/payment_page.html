@@ -1,0 +1,35 @@
+<form method="GET" action="">
+  <input type="hidden" id="selected_vehicle" value="City Scooter">
+  <button type="submit" onclick="goToPaymentPage()">Proceed to Payment</button>
+</form>
+
+<script>
+  function goToPaymentPage() {
+    const vehicle = document.getElementById("selected_vehicle").value;
+
+    switch(vehicle) {
+      case "City Scooter":
+        window.location.href = "/payments/city-scooter/";
+        break;
+      case "Sport Bike":
+        window.location.href = "/payments/sport-bike/";
+        break;
+      case "Cruiser Bike":
+        window.location.href = "/payments/cruiser/";
+      case "Adventure Bike":
+        window.location.href = "/payments/Adventure-bike/";
+        break;
+      case "Premium Scooter":
+        window.location.href = "/payments/Premium-Scooter/";
+        break;
+      case "Electric Scooter":
+        window.location.href = "/payments/Electric-Scooter/";
+        break;
+      case "Cycle":
+        window.location.href = "/payments/Cycle/";
+        break;
+      default:
+        alert("No payment page found.");
+    }
+  }
+</script>
